@@ -1,0 +1,26 @@
+// 0/1 Knapsack Problem by using recursion and momoization
+#include<bits/stdc++.h>
+using namespace std;
+const int d=1000;
+int dp[d][d];
+
+int knapsack(int arr[],int wt[],int w,int n){
+    if(w==0 || n==0) return 0;
+    
+    if(dp[n][w]!=-1) return dp[n][w];
+    
+    if(wt[n-1]<=w) {
+        return dp[n][w]=max(arr[n-1]+knapsack(arr,wt,w-wt[n-1],n-1),knapsack(arr,wt,w,n-1));
+        
+    }
+    else return dp[n][w]=knapsack(arr,wt,w,n-1);
+}
+int main(){
+    memset(dp,-1,sizeof(dp));
+    int n=3;
+    int arr[3]={1,2,3};
+    int wt[3]={4,5,1};
+    int w=3;
+    cout<<knapsack(arr,wt,w,n);
+    return 0;
+}

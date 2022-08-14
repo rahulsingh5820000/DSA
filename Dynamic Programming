@@ -1,0 +1,21 @@
+//__0/1 Knapsack Problems by using recursion.
+
+#include<bits/stdc++.h>
+using namespace std;
+int knapsack(int arr[],int wt[],int w,int n){
+    if(w==0 || n==0) return 0;
+    
+    if(wt[n-1]<=w) {
+        return max(arr[n-1]+knapsack(arr,wt,w-wt[n-1],n-1),knapsack(arr,wt,w-wt[n-1],n-1));
+        
+    }
+    else return knapsack(arr,wt,w,n-1);
+}
+int main(){
+    int n=3;
+    int arr[3]={1,2,3};
+    int wt[3]={4,5,1};
+    int w=3;
+    cout<<knapsack(arr,wt,w,n);
+    return 0;
+}

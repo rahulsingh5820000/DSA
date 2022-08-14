@@ -1,4 +1,4 @@
-// 0/1 Knapsack Problem by using recursion and momoization
+// 0/1 Knapsack Problem by using recursion and memoization
 #include<bits/stdc++.h>
 using namespace std;
 const int d=1000;
